@@ -27,8 +27,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "server": "json-server --watch db.json --port 8080",
-    "start": "react-scripts start",
+    "server": "npm start --prefix server",
+    "client": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,5 +52,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "."
+  "homepage": ".",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
 }
